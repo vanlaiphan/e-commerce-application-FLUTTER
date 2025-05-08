@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # t_store
 
 A new Flutter project.
@@ -15,3 +16,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# e-commerce-application-FLUTTER
+e-commerce application
+>>>>>>> a89fd6dc79a282772e126ce304e92f04be775128
