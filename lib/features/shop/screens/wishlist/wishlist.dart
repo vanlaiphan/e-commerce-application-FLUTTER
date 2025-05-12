@@ -16,11 +16,9 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppBar(
-        title:
-            Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
+        title: Text('Wishlist', style: Theme.of(context).textTheme.headlineMedium),
         actions: [
-          TCircularIcon(
-              icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen())),
+          TCircularIcon(icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen())),
         ],
       ),
       body: SingleChildScrollView(
@@ -28,9 +26,7 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              TGridLayout(
-                  itemCount: 6,
-                  itemBuilder: (_, index) => const TProductCardVertical())
+              TGridLayout(itemCount: 6, itemBuilder: (_, index) => const TProductCardVertical()),
             ],
           ),
         ),

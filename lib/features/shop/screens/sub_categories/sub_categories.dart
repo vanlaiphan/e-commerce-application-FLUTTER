@@ -19,10 +19,7 @@ class SubCategoriesScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Banner
-              const TRoundedImage(
-                  width: double.infinity,
-                  imageUrl: TImages.promoBanner3,
-                  applyImageRadius: true),
+              const TRoundedImage(width: double.infinity, imageUrl: TImages.promoBanner3, applyImageRadius: true),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               /// Sub-Categories
@@ -37,10 +34,8 @@ class SubCategoriesScreen extends StatelessWidget {
                     child: ListView.separated(
                       itemCount: 4,
                       scrollDirection: Axis.horizontal,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: TSizes.spaceBtwItems),
-                      itemBuilder: (context, index) =>
-                          const TProductCardHorizontal(),
+                      separatorBuilder: (context, index) => const SizedBox(width: TSizes.spaceBtwItems),
+                      itemBuilder: (context, index) => const TProductCardHorizontal(),
                     ),
                   ),
                 ],

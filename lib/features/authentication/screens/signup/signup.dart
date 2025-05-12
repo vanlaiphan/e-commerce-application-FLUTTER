@@ -11,7 +11,6 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -21,8 +20,7 @@ class SignupScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /// Title
-              Text(TTexts.signupTitle,
-                  style: Theme.of(context).textTheme.headlineMedium),
+              Text(TTexts.signupTitle, style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               /// Form

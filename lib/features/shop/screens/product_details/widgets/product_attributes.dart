@@ -26,25 +26,17 @@ class TProductAttributes extends StatelessWidget {
               /// Title, Price and Stock Status
               Row(
                 children: [
-                  const TSectionHeading(
-                      title: 'Variation', showActionButton: false),
+                  const TSectionHeading(title: 'Variation', showActionButton: false),
                   const SizedBox(width: TSizes.spaceBtwItems),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          const TProductTitleText(
-                              title: 'Price : ', smallSize: true),
+                          const TProductTitleText(title: 'Price : ', smallSize: true),
 
                           /// Actual Price
-                          Text(
-                            '\$25',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .apply(decoration: TextDecoration.lineThrough),
-                          ),
+                          Text('\$25', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
                           const SizedBox(width: TSizes.spaceBtwItems),
 
                           /// Sale Price
@@ -55,10 +47,8 @@ class TProductAttributes extends StatelessWidget {
                       /// Stock
                       Row(
                         children: [
-                          const TProductTitleText(
-                              title: 'Stock : ', smallSize: true),
-                          Text('In Stock',
-                              style: Theme.of(context).textTheme.titleMedium),
+                          const TProductTitleText(title: 'Stock : ', smallSize: true),
+                          Text('In Stock', style: Theme.of(context).textTheme.titleMedium),
                         ],
                       ),
                     ],
@@ -68,8 +58,7 @@ class TProductAttributes extends StatelessWidget {
 
               /// Variation Description
               const TProductTitleText(
-                title:
-                    'This is the Description of the Product and it can go upto max 4 line.',
+                title: 'This is the Description of the Product and it can go upto max 4 line.',
                 smallSize: true,
                 maxLines: 4,
               )
@@ -82,28 +71,30 @@ class TProductAttributes extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TSectionHeading(title: 'Color',showActionButton: false),
+            const TSectionHeading(title: 'Color', showActionButton: false),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             Wrap(
               spacing: 8,
               children: [
-                TChoiceChip(text: 'Green', selected: false,onSelected: (value){}),
-                TChoiceChip(text: 'Blue', selected: true,onSelected: (value){}),
-                TChoiceChip(text: 'Yellow', selected: false,onSelected: (value){}),],
+                TChoiceChip(text: 'Green', selected: false, onSelected: (value) {}),
+                TChoiceChip(text: 'Blue', selected: true, onSelected: (value) {}),
+                TChoiceChip(text: 'Yellow', selected: false, onSelected: (value) {}),
+              ],
             )
           ],
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TSectionHeading(title: 'Size',showActionButton: false),
+            const TSectionHeading(title: 'Size', showActionButton: false),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             Wrap(
               spacing: 8,
               children: [
-                TChoiceChip(text: 'EU 34', selected: true,onSelected: (value){}),
-                TChoiceChip(text: 'EU 36', selected: false,onSelected: (value){}),
-                TChoiceChip(text: 'EU 38', selected: false,onSelected: (value){}),],
+                TChoiceChip(text: 'EU 34', selected: true, onSelected: (value) {}),
+                TChoiceChip(text: 'EU 36', selected: false, onSelected: (value) {}),
+                TChoiceChip(text: 'EU 38', selected: false, onSelected: (value) {}),
+              ],
             )
           ],
         ),

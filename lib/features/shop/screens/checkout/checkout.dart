@@ -22,11 +22,7 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: TAppBar(
-        showBackArrow: true,
-        title: Text('Order Review',
-            style: Theme.of(context).textTheme.headlineSmall),
-      ),
+      appBar: TAppBar(showBackArrow: true, title: Text('Order Review', style: Theme.of(context).textTheme.headlineSmall)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),

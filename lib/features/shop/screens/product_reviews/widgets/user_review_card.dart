@@ -20,8 +20,7 @@ class UserReviewCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(
-                    backgroundImage: AssetImage(TImages.userProfileImage1)),
+                const CircleAvatar(backgroundImage: AssetImage(TImages.userProfileImage1)),
                 const SizedBox(width: TSizes.spaceBtwItems),
                 Text('John Doe', style: Theme.of(context).textTheme.titleLarge),
               ],
@@ -46,14 +45,8 @@ class UserReviewCard extends StatelessWidget {
           trimMode: TrimMode.Line,
           trimExpandedText: 'show less',
           trimCollapsedText: 'show more',
-          moreStyle: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: TColors.primary),
-          lessStyle: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              color: TColors.primary),
+          moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: TColors.primary),
+          lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: TColors.primary),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
 
@@ -67,10 +60,8 @@ class UserReviewCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("T's Store",
-                        style: Theme.of(context).textTheme.titleMedium),
-                    Text("02 Nov, 2024",
-                        style: Theme.of(context).textTheme.bodyMedium),
+                    Text("T's Store", style: Theme.of(context).textTheme.titleMedium),
+                    Text("02 Nov, 2024", style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
@@ -80,14 +71,8 @@ class UserReviewCard extends StatelessWidget {
                   trimMode: TrimMode.Line,
                   trimExpandedText: 'show less',
                   trimCollapsedText: 'show more',
-                  moreStyle: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: TColors.primary),
-                  lessStyle: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: TColors.primary),
+                  moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: TColors.primary),
+                  lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: TColors.primary),
                 ),
               ],
             ),

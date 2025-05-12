@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:t_store/common/widgets/layouts/grid_layout.dart';
@@ -24,8 +23,7 @@ class StoreScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: TAppBar(
-          title:
-              Text('Store', style: Theme.of(context).textTheme.headlineMedium),
+          title: Text('Store', style: Theme.of(context).textTheme.headlineMedium),
           actions: [
             TCartCounterIcon(onPressed: () {}),
           ],
@@ -37,9 +35,7 @@ class StoreScreen extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 pinned: true,
                 floating: true,
-                backgroundColor: THelperFunctions.isDarkMode(context)
-                    ? TColors.black
-                    : TColors.white,
+                backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
                 expandedHeight: 440,
                 flexibleSpace: Padding(
                   padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -49,18 +45,14 @@ class StoreScreen extends StatelessWidget {
                     children: [
                       /// -- Search bar
                       const SizedBox(height: TSizes.spaceBtwItems),
-                      const TSearchContainer(
-                          text: 'Search in Store',
-                          showBorder: true,
-                          showBackground: false,
-                          padding: EdgeInsets.zero),
+                      const TSearchContainer(text: 'Search in Store', showBorder: true, showBackground: false, padding: EdgeInsets.zero),
                       const SizedBox(height: TSizes.spaceBtwSections),
 
                       /// -- Featured  Brands
                       TSectionHeading(
                         title: 'Featured Brands',
                         showActionButton: true,
-                        onPressed: () => Get.to(()=> const AllBrandsScreen()),
+                        onPressed: () => Get.to(() => const AllBrandsScreen()),
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 

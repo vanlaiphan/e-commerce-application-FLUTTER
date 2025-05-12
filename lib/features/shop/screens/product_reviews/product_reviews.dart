@@ -22,14 +22,13 @@ class ProductReviewsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                  "Ratings and review are verified and are from people who use the same type of device that you use."),
+              const Text("Ratings and review are verified and are from people who use the same type of device that you use."),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               /// Overall Product Ratings
               const TOverallProductRating(),
               const TRatingBarIndicator(rating: 3.5),
-              Text("12,611",style: Theme.of(context).textTheme.bodySmall),
+              Text("12,611", style: Theme.of(context).textTheme.bodySmall),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               /// User Reviews List
@@ -44,4 +43,3 @@ class ProductReviewsScreen extends StatelessWidget {
     );
   }
 }
-

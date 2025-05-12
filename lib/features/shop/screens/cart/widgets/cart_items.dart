@@ -18,14 +18,12 @@ class TCartItems extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       itemCount: 2,
-      separatorBuilder: (_, __) =>
-          const SizedBox(height: TSizes.spaceBtwSections),
+      separatorBuilder: (_, __) => const SizedBox(height: TSizes.spaceBtwSections),
       itemBuilder: (_, index) => Column(
         children: [
           /// Cart Item
           const TCartItem(),
-          if (showAddRemoveButtons)
-            const SizedBox(height: TSizes.spaceBtwItems),
+          if (showAddRemoveButtons) const SizedBox(height: TSizes.spaceBtwItems),
 
           /// Add Remove Button Row with total Price
           if (showAddRemoveButtons)

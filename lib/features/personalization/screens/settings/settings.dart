@@ -12,6 +12,7 @@ import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -28,19 +29,11 @@ class SettingsScreen extends StatelessWidget {
                 children: [
                   /// Appbar
                   TAppBar(
-                    title: Text(
-                      'Account',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .apply(color: TColors.white),
-                    ),
+                    title: Text('Account', style: Theme.of(context).textTheme.headlineMedium!.apply(color: TColors.white)),
                   ),
-                  const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// User Profile Card
-                  TUserProfileTile(
-                      onPressed: () => Get.to(() => const ProfileScreen())),
+                  TUserProfileTile(onPressed: () => Get.to(() => const ProfileScreen())),
                   const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
@@ -52,8 +45,7 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// -- Account Settings
-                  const TSectionHeading(
-                      title: 'Account Settings', showActionButton: false),
+                  const TSectionHeading(title: 'Account Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
@@ -101,8 +93,7 @@ class SettingsScreen extends StatelessWidget {
 
                   /// -- App Settings
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  const TSectionHeading(
-                      title: 'App Settings', showActionButton: false),
+                  const TSectionHeading(title: 'App Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   const TSettingsMenuTile(
                     icon: Iconsax.document_upload,
@@ -132,8 +123,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
                   SizedBox(
                     width: double.infinity,
-                    child: OutlinedButton(
-                        onPressed: () {}, child: const Text('Logout')),
+                    child: OutlinedButton(onPressed: () => AuthenticationRepository.instance.logout(), child: const Text('Logout')),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections * 2.5),
                 ],

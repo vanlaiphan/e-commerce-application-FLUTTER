@@ -28,9 +28,7 @@ class TProductImageSlider extends StatelessWidget {
               height: 400,
               child: Padding(
                 padding: EdgeInsets.all(TSizes.productImageRadius * 2),
-                child: Center(
-                    child: Image(
-                        image: AssetImage(TImages.productImage5))),
+                child: Center(child: Image(image: AssetImage(TImages.productImage5))),
               ),
             ),
 
@@ -46,12 +44,10 @@ class TProductImageSlider extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: const AlwaysScrollableScrollPhysics(),
-                  separatorBuilder: (_, __) =>
-                  const SizedBox(width: TSizes.spaceBtwItems),
+                  separatorBuilder: (_, __) => const SizedBox(width: TSizes.spaceBtwItems),
                   itemBuilder: (_, index) => TRoundedImage(
                     width: 80,
-                    backgroundColor:
-                    dark ? TColors.dark : TColors.white,
+                    backgroundColor: dark ? TColors.dark : TColors.white,
                     border: Border.all(color: TColors.primary),
                     padding: const EdgeInsets.all(TSizes.sm),
                     imageUrl: TImages.productImage6,
@@ -63,9 +59,7 @@ class TProductImageSlider extends StatelessWidget {
             /// Appbar Icons
             const TAppBar(
               showBackArrow: true,
-              actions: [
-                TCircularIcon(icon: Iconsax.heart5, color: Colors.red)
-              ],
+              actions: [TCircularIcon(icon: Iconsax.heart5, color: Colors.red)],
             ),
           ],
         ),

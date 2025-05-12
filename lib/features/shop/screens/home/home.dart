@@ -40,11 +40,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         /// -- Heading
-                        TSectionHeading(
-                          title: 'Popular Categories',
-                          showActionButton: false,
-                          textColor: Colors.white,
-                        ),
+                        TSectionHeading(title: 'Popular Categories', showActionButton: false, textColor: Colors.white),
                         SizedBox(height: TSizes.spaceBtwItems),
 
                         /// -- Categories
@@ -63,26 +59,15 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   /// - Promo Slider
-                  const TPromoSlider(
-                    banners: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3
-                    ],
-                  ),
+                  const TPromoSlider(banners: [TImages.promoBanner1, TImages.promoBanner2, TImages.promoBanner3]),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// - Heading
-                  TSectionHeading(
-                    title: 'Popular Products',
-                    onPressed: () => Get.to(() => const AllProducts()),
-                  ),
+                  TSectionHeading(title: 'Popular Products', onPressed: () => Get.to(() => const AllProducts())),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   /// - Popular Products
-                  TGridLayout(
-                      itemCount: 2,
-                      itemBuilder: (_, index) => const TProductCardVertical()),
+                  TGridLayout(itemCount: 2, itemBuilder: (_, index) => const TProductCardVertical()),
                 ],
               ),
             )

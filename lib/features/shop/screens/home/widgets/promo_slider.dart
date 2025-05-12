@@ -23,10 +23,7 @@ class TPromoSlider extends StatelessWidget {
     return Column(
       children: [
         CarouselSlider(
-            options: CarouselOptions(
-                viewportFraction: 1,
-                onPageChanged: (index, _) =>
-                    controller.updatePageIndicator(index)),
+            options: CarouselOptions(viewportFraction: 1, onPageChanged: (index, _) => controller.updatePageIndicator(index)),
             items: banners.map((url) => TRoundedImage(imageUrl: url)).toList()),
         const SizedBox(height: TSizes.spaceBtwItems),
         Center(
@@ -39,9 +36,7 @@ class TPromoSlider extends StatelessWidget {
                     width: 20,
                     height: 4,
                     margin: const EdgeInsets.only(right: 10),
-                    backgroundColor: controller.carousalCurrentIndex.value == i
-                        ? TColors.primary
-                        : TColors.grey,
+                    backgroundColor: controller.carousalCurrentIndex.value == i ? TColors.primary : TColors.grey,
                   ),
               ],
             ),

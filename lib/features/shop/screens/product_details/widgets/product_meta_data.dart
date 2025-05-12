@@ -27,22 +27,13 @@ class TProductMetaData extends StatelessWidget {
             TRoundedContainer(
               radius: TSizes.sm,
               backgroundColor: TColors.secondary.withOpacity(0.8),
-              padding: const EdgeInsets.symmetric(
-                  horizontal: TSizes.sm, vertical: TSizes.xs),
-              child: Text('25%',
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .apply(color: TColors.black)),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.xs),
+              child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: TColors.black)),
             ),
             const SizedBox(width: TSizes.spaceBtwItems),
 
             /// Price
-            Text('\$250',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .apply(decoration: TextDecoration.lineThrough)),
+            Text('\$250', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
             const SizedBox(width: TSizes.spaceBtwItems),
             const TProductPriceText(price: '175', isLarge: true),
           ],
@@ -72,10 +63,7 @@ class TProductMetaData extends StatelessWidget {
               height: 32,
               overlayColor: darkMode ? TColors.white : TColors.black,
             ),
-            const TBrandTitleWithVerifiedIcon(
-              title: 'Nike',
-              brandTextSize: TextSizes.medium,
-            ),
+            const TBrandTitleWithVerifiedIcon(title: 'Nike', brandTextSize: TextSizes.medium),
           ],
         ),
       ],

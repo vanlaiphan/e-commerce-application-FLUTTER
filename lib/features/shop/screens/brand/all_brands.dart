@@ -20,17 +20,14 @@ class AllBrandsScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Heading
-              const TSectionHeading(title: 'Brand',showActionButton: false),
+              const TSectionHeading(title: 'Brand', showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               /// Brands
               TGridLayout(
                 itemCount: 10,
                 mainAxisExtent: 80,
-                itemBuilder: (context, index) => TBrandCard(
-                  showBorder: true,
-                  onTap: () => Get.to(() => const BrandProducts()),
-                ),
+                itemBuilder: (context, index) => TBrandCard(showBorder: true, onTap: () => Get.to(() => const BrandProducts())),
               ),
             ],
           ),
