@@ -14,6 +14,7 @@ import 'package:t_store/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:t_store/utils/exceptions/firebase_exceptions.dart';
 import 'package:t_store/utils/exceptions/format_exceptions.dart';
 import 'package:t_store/utils/exceptions/platform_exceptions.dart';
+import 'package:t_store/utils/local_storage/storage_utility.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -23,7 +24,7 @@ class AuthenticationRepository extends GetxController {
   final _auth = FirebaseAuth.instance;
 
   /// Get Authenticated User Data.
-  User? get authUser => _auth.currentUser;
+  User get authUser => _auth.currentUser!;
 
   /// Called from main.dart on app launch
   @override
@@ -35,17 +36,26 @@ class AuthenticationRepository extends GetxController {
   }
 
   /// Function to determine the relevant screen and redirect accordingly.
-  screenRedirect() async {
+  void screenRedirect() async {
     final user = _auth.currentUser;
+
     if (user != null) {
+      // If the user is logged in
       if (user.emailVerified) {
+
+        // Initialize User Specific Storage
+        await TLocalStorage.init(user.uid);
+
+        // If the user's email is verified, navigate to the main Navigation Menu
         Get.offAll(() => const NavigationMenu());
       } else {
+        // If the user's email is not verified, navigate to the VerifyEmailScreen
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
     } else {
       // Local Storage
       deviceStorage.writeIfNull('IsFirstTime', true);
+
       // Check if it's the first time launching the app
       deviceStorage.read('IsFirstTime') != true
           ? Get.offAll(() => const LoginScreen()) // Redirect to Login Screen if not the first time

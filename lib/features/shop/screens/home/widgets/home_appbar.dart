@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:t_store/common/widgets/appbar/shimmer.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -24,6 +24,7 @@ class THomeAppBar extends StatelessWidget {
           Obx(
             () {
               if (controller.profileLoading.value) {
+                // Display a shimmer loader while user profile is being loader
                 return const TShimmerEffect(width: 80, height: 15);
               } else {
                 return Text(controller.user.value.fullName, style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white));
@@ -32,7 +33,7 @@ class THomeAppBar extends StatelessWidget {
           ),
         ],
       ),
-      actions: [TCartCounterIcon(onPressed: () {}, iconColor: TColors.white)],
+      actions: const [TCartCounterIcon(iconColor: TColors.white, counterBgColor: TColors.black, counterTextColor: TColors.white)],
     );
   }
 }

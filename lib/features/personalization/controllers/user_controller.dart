@@ -104,7 +104,7 @@ class UserController extends GetxController {
   /// Delete User Account
   void deleteUserAccount() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing', TImages.productImage1);
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
       /// First re-authenticate user
       final auth = AuthenticationRepository.instance;

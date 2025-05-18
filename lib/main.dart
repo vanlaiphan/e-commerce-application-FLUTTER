@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:t_store/app.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:t_store/utils/local_storage/storage_utility.dart';
 
 import 'firebase_options.dart';
 
@@ -15,6 +16,7 @@ Future<void> main() async {
 
   /// -- GetX Local Storage
   await GetStorage.init();
+  await TLocalStorage.init('');
 
   /// -- Await Splash until other items Load
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);

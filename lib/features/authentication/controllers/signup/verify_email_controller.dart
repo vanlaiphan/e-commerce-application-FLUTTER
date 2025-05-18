@@ -41,7 +41,7 @@ class VerifyEmailController extends GetxController {
           timer.cancel();
           Get.off(
             () => SuccessScreen(
-              image: TImages.successfulPaymentIcon,
+              image: TImages.successfullyRegisterAnimation,
               title: TTexts.yourAccountCreatedTitle,
               subTitle: TTexts.yourAccountCreatedSubTitle,
               onPressed: () => AuthenticationRepository.instance.screenRedirect(),
@@ -58,7 +58,7 @@ class VerifyEmailController extends GetxController {
     if (currentUser != null && currentUser.emailVerified) {
       Get.off(
         () => SuccessScreen(
-          image: TImages.successfulPaymentIcon,
+          image: TImages.successfullyRegisterAnimation,
           title: TTexts.yourAccountCreatedTitle,
           subTitle: TTexts.yourAccountCreatedSubTitle,
           onPressed: () => AuthenticationRepository.instance.screenRedirect(),

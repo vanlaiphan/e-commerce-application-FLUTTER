@@ -35,7 +35,7 @@ class UpdateNameController extends GetxController {
   Future<void> updateUserName() async {
     try {
       // Start Loading
-      TFullScreenLoader.openLoadingDialog('We are updating your information...', TImages.productImage1);
+      TFullScreenLoader.openLoadingDialog('We are updating your information...', TImages.docerAnimation);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();

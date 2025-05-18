@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
+import 'package:t_store/features/shop/models/brand_model.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/enums.dart';
@@ -12,10 +12,12 @@ import '../texts/t_brand_title_text_with_verified_icon.dart';
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
-    required this.showBorder,
     this.onTap,
+    required this.showBorder,
+    required this.brand,
   });
 
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTap;
 
@@ -25,6 +27,7 @@ class TBrandCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: onTap,
+
       /// Container Design
       child: TRoundedContainer(
         showBorder: showBorder,
@@ -36,8 +39,8 @@ class TBrandCard extends StatelessWidget {
             /// -- Icon
             Flexible(
               child: TCircularImage(
-                isNetworkImage: false,
-                image: TImages.clothIcon,
+                isNetworkImage: true,
+                image: brand.image,
                 backgroundColor: Colors.transparent,
                 overlayColor: isDark ? TColors.white : TColors.black,
               ),
@@ -52,10 +55,9 @@ class TBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TBrandTitleWithVerifiedIcon(
-                      title: 'Nike', brandTextSize: TextSizes.large),
+                  TBrandTitleWithVerifiedIcon(title: brand.name, brandTextSize: TextSizes.large),
                   Text(
-                    '25 products',
+                    '${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),

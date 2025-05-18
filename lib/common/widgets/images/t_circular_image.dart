@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:t_store/common/widgets/appbar/shimmer.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -49,7 +49,7 @@ class TCircularImage extends StatelessWidget {
                 )
               : Image(
                   fit: fit,
-                  image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
+                  image: AssetImage(image),
                   color: overlayColor,
                 ),
         ),
