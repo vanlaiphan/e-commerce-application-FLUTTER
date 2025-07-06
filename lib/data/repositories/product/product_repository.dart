@@ -62,6 +62,9 @@ class ProductRepository extends GetxController {
   /// Get Products based on the Query
   Future<List<ProductModel>> getFavouriteProducts(List<String> productIds) async {
     try {
+      if (productIds.isEmpty) {
+        return <ProductModel>[];
+      }
       final snapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn: productIds).get();
       return snapshot.docs.map((querySnapshot) => ProductModel.fromSnapshot(querySnapshot)).toList();
     } on FirebaseException catch (e) {
@@ -94,7 +97,7 @@ class ProductRepository extends GetxController {
       // Query to get all documents where productId matches the provided categoryId & Fetch limited or unlimited based on limit
       QuerySnapshot productCategoryQuery = limit == -1
           ? await _db.collection('ProductCategory').where('categoryId', isEqualTo: categoryId).get()
-          : await _db.collection('ProductCategory').where('categoryId.Id', isEqualTo: categoryId).limit(limit).get();
+          : await _db.collection('ProductCategory').where('categoryId', isEqualTo: categoryId).limit(limit).get();
 
       // Extract productIds from the documents
       List<String> productIds = productCategoryQuery.docs.map((doc) => doc['productId'] as String).toList();

@@ -54,6 +54,19 @@ class TSingleAddress extends StatelessWidget {
                       : null,
                 ),
               ),
+              // Delete Button
+              Positioned(
+                right: 5,
+                bottom: 0,
+                child: IconButton(
+                  onPressed: () => controller.deleteAddress(address),
+                  icon: const Icon(
+                    Iconsax.trash,
+                    color: Colors.red,
+                    size: 18,
+                  ),
+                ),
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

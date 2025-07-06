@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../features/shop/screens/home/widgets/search_screen.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/device/device_utility.dart';
@@ -28,7 +29,7 @@ class TSearchContainer extends StatelessWidget {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap ?? () => _openSearch(context),
       child: Padding(
         padding: padding,
         child: Container(
@@ -37,8 +38,8 @@ class TSearchContainer extends StatelessWidget {
           decoration: BoxDecoration(
             color: showBackground
                 ? dark
-                    ? TColors.dark
-                    : TColors.light
+                ? TColors.dark
+                : TColors.light
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
             border: showBorder ? Border.all(color: TColors.grey) : null,
@@ -52,6 +53,13 @@ class TSearchContainer extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _openSearch(BuildContext context) {
+    showSearch(
+      context: context,
+      delegate: TSearchDelegate(),
     );
   }
 }

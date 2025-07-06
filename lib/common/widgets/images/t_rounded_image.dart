@@ -13,7 +13,7 @@ class TRoundedImage extends StatelessWidget {
     this.backgroundColor,
     this.fit = BoxFit.contain,
     this.padding,
-    this.isNetworkImage = false,
+    this.isNetworkImage = true,
     this.onPressed,
     this.borderRadius = TSizes.md,
   });
@@ -47,7 +47,8 @@ class TRoundedImage extends StatelessWidget {
               : BorderRadius.zero,
           child: Image(
               fit: fit,
-              image: isNetworkImage
+              // image: isNetworkImage
+              image: (isNetworkImage && (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')))
                   ? NetworkImage(imageUrl)
                   : AssetImage(imageUrl) as ImageProvider),
         ),

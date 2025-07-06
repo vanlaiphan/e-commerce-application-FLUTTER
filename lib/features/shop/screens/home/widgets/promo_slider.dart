@@ -15,47 +15,49 @@ class TPromoSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BannerController());
-    return Obx(() {
-      // Loader
-      if (controller.isLoading.value) return const TShimmerEffect(width: double.infinity, height: 190);
+    return Obx(
+      () {
+        // Loader
+        if (controller.isLoading.value) return const TShimmerEffect(width: double.infinity, height: 190);
 
-      // No data found
-      if (controller.banners.isEmpty) {
-        return const Center(child: Text('No Data Found!'));
-      } else {
-        return Column(
-          children: [
-            CarouselSlider(
-                options: CarouselOptions(viewportFraction: 1, onPageChanged: (index, _) => controller.updatePageIndicator(index)),
-                items: controller.banners
-                    .map(
-                      (banner) => TRoundedImage(
-                        imageUrl: banner.imageUrl,
-                        isNetworkImage: true,
-                        onPressed: () => Get.toNamed(banner.targetScreen),
-                      ),
-                    )
-                    .toList()),
-            const SizedBox(height: TSizes.spaceBtwItems),
-            Center(
-              child: Obx(
-                () => Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    for (int i = 0; i < controller.banners.length; i++)
-                      TCircularContainer(
-                        width: 20,
-                        height: 4,
-                        margin: const EdgeInsets.only(right: 10),
-                        backgroundColor: controller.carousalCurrentIndex.value == i ? TColors.primary : TColors.grey,
-                      ),
-                  ],
+        // No data found
+        if (controller.banners.isEmpty) {
+          return const Center(child: Text('No Data Found!'));
+        } else {
+          return Column(
+            children: [
+              CarouselSlider(
+                  options: CarouselOptions(viewportFraction: 1, onPageChanged: (index, _) => controller.updatePageIndicator(index)),
+                  items: controller.banners
+                      .map(
+                        (banner) => TRoundedImage(
+                          imageUrl: banner.imageUrl,
+                          isNetworkImage: true,
+                          onPressed: () => Get.toNamed(banner.targetScreen),
+                        ),
+                      )
+                      .toList()),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              Center(
+                child: Obx(
+                  () => Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      for (int i = 0; i < controller.banners.length; i++)
+                        TCircularContainer(
+                          width: 20,
+                          height: 4,
+                          margin: const EdgeInsets.only(right: 10),
+                          backgroundColor: controller.carousalCurrentIndex.value == i ? TColors.primary : TColors.grey,
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
-        );
-      }
-    });
+              )
+            ],
+          );
+        }
+      },
+    );
   }
 }

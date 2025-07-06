@@ -36,8 +36,7 @@ class TCategoryTab extends StatelessWidget {
                   future: controller.getCategoryProducts(categoryId: category.id),
                   builder: (context, snapshot) {
                     /// Helper Function: Handle Loader, No Record, OR ERROR Message
-                    final response =
-                        TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const TVerticalProductShimmer());
+                    final response = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: const TVerticalProductShimmer());
                     if (response != null) return response;
 
                     /// Record Found!
@@ -47,8 +46,7 @@ class TCategoryTab extends StatelessWidget {
                       children: [
                         TSectionHeading(
                           title: 'You might like',
-                          onPressed: () => Get.to(
-                            AllProducts(
+                          onPressed: () => Get.to(AllProducts(
                               title: category.name,
                               futureMethod: controller.getCategoryProducts(categoryId: category.id, limit: -1),
                             ),

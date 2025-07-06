@@ -69,7 +69,6 @@ class TProductCardVertical extends StatelessWidget {
                     top: 0,
                     right: 0,
                     child: TFavouriteIcon(productId: product.id),
-                    // child: TFavouriteIcon(productId: ''),
                   ),
                 ],
               ),

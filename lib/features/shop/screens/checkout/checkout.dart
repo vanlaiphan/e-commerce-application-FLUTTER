@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:t_store/common/widgets/success_screen/success_screen.dart';
 import 'package:t_store/features/shop/controllers/product/cart_controller.dart';
 import 'package:t_store/features/shop/controllers/product/order_controller.dart';
 import 'package:t_store/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:t_store/features/shop/screens/checkout/widgets/billing_payment_section.dart';
-import 'package:t_store/navigation_menu.dart';
 import 'package:t_store/utils/constants/colors.dart';
-import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 import 'package:t_store/utils/helpers/pricing_calculator.dart';
@@ -27,7 +24,7 @@ class CheckoutScreen extends StatelessWidget {
     final cartController = CartController.instance;
     final subTotal = cartController.totalCartPrice.value;
     final orderController = Get.put(OrderController());
-    final totalAmount = TPricingCalculator.calculateTotalPrice(subTotal, 'US');
+    final totalAmount = TPricingCalculator.calculateTotalPrice(subTotal, '');
 
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(

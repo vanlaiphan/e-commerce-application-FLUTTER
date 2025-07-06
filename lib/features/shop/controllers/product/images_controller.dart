@@ -28,7 +28,8 @@ class ImagesController extends GetxController {
 
     // Get all images from the Product Variations if not null.
     if (product.productVariations != null || product.productVariations!.isNotEmpty) {
-      images.addAll(product.productVariations!.map((variation) => variation.image));
+      images.addAll(product.productVariations!.map((variation) => variation.image).where((img) => img.isNotEmpty));
+      // images.addAll(product.productVariations!.map((variation) => variation.image));
     }
 
     return images.toList();

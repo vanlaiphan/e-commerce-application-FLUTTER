@@ -10,6 +10,9 @@ class OrderModel {
   final String userId;
   final OrderStatus status;
   final double totalAmount;
+  final double subTotal;
+  final double shippingFee;
+  final double taxFee;
   final DateTime orderDate;
   final String paymentMethod;
   final AddressModel? address;
@@ -22,6 +25,9 @@ class OrderModel {
     required this.status,
     required this.items,
     required this.totalAmount,
+    required this.subTotal,
+    required this.shippingFee,
+    required this.taxFee,
     required this.orderDate,
     this.paymentMethod = 'Paypal',
     this.address,
@@ -35,8 +41,8 @@ class OrderModel {
   String get orderStatusText => status == OrderStatus.delivered
       ? 'Delivered'
       : status == OrderStatus.shipped
-          ? 'Shipment on the way'
-          : 'Processing';
+      ? 'Shipment on the way'
+      : 'Processing';
 
   Map<String, dynamic> toJson() {
     return {
@@ -44,6 +50,9 @@ class OrderModel {
       'userId': userId,
       'status': status.toString(),
       'totalAmount': totalAmount,
+      'subTotal': subTotal,
+      'shippingFee': shippingFee,
+      'taxFee': taxFee,
       'orderDate': orderDate,
       'paymentMethod': paymentMethod,
       'address': address?.toJson(),
@@ -60,6 +69,9 @@ class OrderModel {
       userId: data['userId'] as String,
       status: OrderStatus.values.firstWhere((e) => e.toString() == data['status']),
       totalAmount: data['totalAmount'] as double,
+      subTotal: data['subTotal'] as double? ?? 0.0,
+      shippingFee: data['shippingFee'] as double? ?? 0.0,
+      taxFee: data['taxFee'] as double? ?? 0.0,
       orderDate: (data['orderDate'] as Timestamp).toDate(),
       paymentMethod: data['paymentMethod'] as String,
       address: AddressModel.fromMap(data['address'] as Map<String, dynamic>),

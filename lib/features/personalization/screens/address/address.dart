@@ -34,6 +34,7 @@ class UserAddressScreen extends StatelessWidget {
                   final addresses = snapshot.data!;
                   return ListView.builder(
                     shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: addresses.length,
                     itemBuilder: (_, index) => TSingleAddress(
                       address: addresses[index],

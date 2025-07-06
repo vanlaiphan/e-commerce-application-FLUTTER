@@ -42,6 +42,8 @@ class ProductVariationModel {
     if (data.isEmpty) return ProductVariationModel.empty();
     return ProductVariationModel(
       id: data['Id'] ?? '',
+      image: data['Image'] ?? '',
+      description: data['Description'] ?? '',
       price: double.parse((data['Price'] ?? 0.0).toString()),
       sku: data['SKU'] ?? '',
       stock: data['Stock'] ?? '',

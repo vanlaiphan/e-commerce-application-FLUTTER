@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
-import 'package:t_store/data/repositories/address_repository.dart';
+import 'package:t_store/data/repositories/address/address_repository.dart';
 import 'package:t_store/features/personalization/models/address_model.dart';
 import 'package:t_store/features/personalization/screens/address/add_new_address.dart';
 import 'package:t_store/features/personalization/screens/address/widgets/single_address.dart';
@@ -64,8 +64,64 @@ class AddressController extends GetxController {
 
       // Set the "selected" field to true for the newly selected address
       await addressRepository.updateSelectedField(selectedAddress.value.id, true);
+
+      if (Get.isDialogOpen ?? false) {
+        Get.back();
+      }
     } catch (e) {
+      if (Get.isDialogOpen ?? false) {
+        Get.back();
+      }
       TLoaders.errorSnackBar(title: 'Error in Selection', message: e.toString());
+    }
+  }
+
+  /// Delete Address
+  Future<void> deleteAddress(AddressModel address) async {
+    try {
+      // Show confirmation dialog
+      Get.defaultDialog(
+        title: 'Delete Address',
+        middleText: 'Are you sure you want to delete this address? This action cannot be undone.',
+        textConfirm: 'Delete',
+        textCancel: 'Cancel',
+        confirmTextColor: Colors.white,
+        onConfirm: () async {
+          // Close confirmation dialog
+          Get.back();
+
+          // Show loading
+          TFullScreenLoader.openLoadingDialog('Deleting Address...', TImages.docerAnimation);
+
+          // Check Internet Connectivity
+          final isConnected = await NetworkManager.instance.isConnected();
+          if (!isConnected) {
+            TFullScreenLoader.stopLoading();
+            return;
+          }
+
+          // Delete from database
+          await addressRepository.deleteAddress(address.id);
+
+          // If deleted address was selected, clear selection
+          if (selectedAddress.value.id == address.id) {
+            selectedAddress.value = AddressModel.empty();
+          }
+
+          // Remove Loader
+          TFullScreenLoader.stopLoading();
+
+          // Show Success Message
+          TLoaders.successSnackBar(title: 'Success', message: 'Address deleted successfully.');
+
+          // Refresh Addresses Data
+          refreshData.toggle();
+        },
+      );
+    } catch (e) {
+      // Remove Loader
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 

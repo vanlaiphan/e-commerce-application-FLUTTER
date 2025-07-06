@@ -28,7 +28,7 @@ class ProductCardAddToCartButton extends StatelessWidget {
           final cartItem = cartController.convertToCartItem(product, 1);
           cartController.addOneToCart(cartItem);
         } else {
-          Get.to(()=>ProductDetailScreen(product: product));
+          Get.to(() => ProductDetailScreen(product: product));
         }
       },
       child: Obx(() {

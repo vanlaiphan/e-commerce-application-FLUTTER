@@ -38,34 +38,38 @@ class TProductAttributes extends StatelessWidget {
                     children: [
                       const TSectionHeading(title: 'Variation', showActionButton: false),
                       const SizedBox(width: TSizes.spaceBtwItems),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              const TProductTitleText(title: 'Price : ', smallSize: true),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const TProductTitleText(title: 'Price : ', smallSize: true),
 
-                              /// Actual Price
-                              if (controller.selectedVariation.value.salePrice > 0)
-                                Text(
-                                  '\$${controller.selectedVariation.value.price}',
-                                  style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
-                                ),
-                              const SizedBox(width: TSizes.spaceBtwItems),
+                                /// Actual Price
+                                if (controller.selectedVariation.value.salePrice > 0)
+                                  Flexible(
+                                    child: Text(
+                                      '\$${controller.selectedVariation.value.price}',
+                                      style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough),
+                                    ),
+                                  ),
+                                const SizedBox(width: TSizes.spaceBtwItems),
 
-                              /// Sale Price
-                              TProductPriceText(price: controller.getVariationPrice()),
-                            ],
-                          ),
+                                /// Sale Price
+                                Flexible(child: TProductPriceText(price: controller.getVariationPrice())),
+                              ],
+                            ),
 
-                          /// Stock
-                          Row(
-                            children: [
-                              const TProductTitleText(title: 'Stock : ', smallSize: true),
-                              Text(controller.variationStockStatus.value, style: Theme.of(context).textTheme.titleMedium),
-                            ],
-                          ),
-                        ],
+                            /// Stock
+                            Row(
+                              children: [
+                                const TProductTitleText(title: 'Stock : ', smallSize: true),
+                                Flexible(child: Text(controller.variationStockStatus.value, style: Theme.of(context).textTheme.titleMedium)),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

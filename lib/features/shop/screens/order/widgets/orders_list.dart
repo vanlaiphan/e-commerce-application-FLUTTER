@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:t_store/features/shop/controllers/product/order_controller.dart';
@@ -11,6 +10,8 @@ import 'package:t_store/utils/constants/sizes.dart';
 import 'package:t_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 import 'package:t_store/utils/loaders/animation_loader.dart';
+
+import 'order_detail_screen.dart';
 
 class TOrderListItems extends StatelessWidget {
   const TOrderListItems({super.key});
@@ -36,6 +37,10 @@ class TOrderListItems extends StatelessWidget {
 
           /// Congratulations Record found.
           final orders = snapshot.data!;
+
+          // Sort Orders by Date
+          orders.sort((a, b) => b.orderDate.compareTo(a.orderDate));
+
           return ListView.separated(
               shrinkWrap: true,
               itemCount: orders.length,
@@ -72,7 +77,10 @@ class TOrderListItems extends StatelessWidget {
                           ),
 
                           /// 3 - Icon
-                          IconButton(onPressed: () {}, icon: const Icon(Iconsax.arrow_right_34, size: TSizes.iconSm)),
+                          IconButton(
+                            onPressed: () => Get.to(() => OrderDetailScreen(orderId: order.id)),
+                            icon: const Icon(Iconsax.arrow_right_34, size: TSizes.iconSm),
+                          ),
                         ],
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems),
@@ -120,7 +128,7 @@ class TOrderListItems extends StatelessWidget {
                                 const SizedBox(width: TSizes.spaceBtwItems / 2),
 
                                 /// 2 - Status & Date
-                                Expanded(
+                                Flexible(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,

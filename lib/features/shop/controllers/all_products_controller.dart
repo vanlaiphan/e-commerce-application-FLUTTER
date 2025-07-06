@@ -38,7 +38,18 @@ class AllProductsController extends GetxController {
         products.sort((a, b) => a.price.compareTo(b.price));
         break;
       case 'Newest':
-        products.sort((a, b) => a.date!.compareTo(b.date!));
+        // products.sort((a, b) => a.date!.compareTo(b.date!));
+        products.sort((a, b) {
+          // Nếu cả hai đều null, coi như bằng nhau
+          if (a.date == null && b.date == null) return 0;
+          // Nếu a.date null, đặt a sau b
+          if (a.date == null) return 1;
+          // Nếu b.date null, đặt b sau a
+          if (b.date == null) return -1;
+          // Cả hai đều không null, so sánh bình thường
+          return b.date!.compareTo(a.date!); // Sắp xếp từ mới nhất đến cũ nhất
+        });
+
         break;
       case 'Sale':
         products.sort((a, b) {
