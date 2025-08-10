@@ -46,30 +46,30 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDYlDIwXdVxGevaidHeWqJ2ibESr9h4Ff4',
-    appId: '1:251852486318:web:540712c8c31a0bd231df3f',
-    messagingSenderId: '251852486318',
-    projectId: 'ecommerceapp-42b06',
-    authDomain: 'ecommerceapp-42b06.firebaseapp.com',
-    storageBucket: 'ecommerceapp-42b06.firebasestorage.app',
+    apiKey: 'AIzaSyBBghW4bB7e8F_GdExwus_laMseTefaWm8',
+    appId: '1:1031670707590:web:fe83c38fd77bdb9c17e807',
+    messagingSenderId: '1031670707590',
+    projectId: 'ecommerceapp-9b2f5',
+    authDomain: 'ecommerceapp-9b2f5.firebaseapp.com',
+    storageBucket: 'ecommerceapp-9b2f5.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA4_Eaca7O5eZttKYLztasyZ9QyhjjCPVE',
-    appId: '1:251852486318:android:fd17d5a414cbaecb31df3f',
-    messagingSenderId: '251852486318',
-    projectId: 'ecommerceapp-42b06',
-    storageBucket: 'ecommerceapp-42b06.firebasestorage.app',
+    apiKey: 'AIzaSyDdb1uyjIv2FG64f2OebezE5buHv648TQ8',
+    appId: '1:1031670707590:android:726b554c08ace08d17e807',
+    messagingSenderId: '1031670707590',
+    projectId: 'ecommerceapp-9b2f5',
+    storageBucket: 'ecommerceapp-9b2f5.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDf6mvajSvuKNlDPGZ9Ey7X3K_pswHHrRM',
-    appId: '1:251852486318:ios:7a730747992d972f31df3f',
-    messagingSenderId: '251852486318',
-    projectId: 'ecommerceapp-42b06',
-    storageBucket: 'ecommerceapp-42b06.firebasestorage.app',
-    androidClientId: '251852486318-csp3t94ueg9il1fumhgv51vsio5u24in.apps.googleusercontent.com',
-    iosClientId: '251852486318-bv7iuapn8i4pa5nl40and4rl2rc5p2pq.apps.googleusercontent.com',
+    apiKey: 'AIzaSyC_x8P8wOVgaWwdQHGdy2Thh5AD2XNrpN4',
+    appId: '1:1031670707590:ios:ee965c8ef6eff4ed17e807',
+    messagingSenderId: '1031670707590',
+    projectId: 'ecommerceapp-9b2f5',
+    storageBucket: 'ecommerceapp-9b2f5.firebasestorage.app',
+    iosClientId: '1031670707590-g96o4bj51s2s814npmotriaied0fbgjd.apps.googleusercontent.com',
     iosBundleId: 'com.example.tStore',
   );
+
 }

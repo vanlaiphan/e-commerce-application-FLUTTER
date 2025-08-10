@@ -40,6 +40,7 @@ class TProductCardVertical extends StatelessWidget {
           color: dark ? TColors.darkerGrey : TColors.white,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             /// - Thumbnail, Wishlist Button, Discount Tag
             TRoundedContainer(
@@ -77,51 +78,51 @@ class TProductCardVertical extends StatelessWidget {
 
             /// - Details
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
-              child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TProductTitleText(title: product.title, smallSize: true),
-                    const SizedBox(height: TSizes.spaceBtwItems / 2),
-                    TBrandTitleWithVerifiedIcon(title: product.brand!.name),
-                  ],
-                ),
-              ),
-            ),
+              padding: const EdgeInsets.only(left: TSizes.sm, right: TSizes.sm, bottom: TSizes.sm),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min, // Thêm dòng này
+                children: [
+                  TProductTitleText(title: product.title, smallSize: true, maxLines: 1),
+                  const SizedBox(height: TSizes.xs),
+                  TBrandTitleWithVerifiedIcon(title: product.brand!.name),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2), // Thêm khoảng cách cố định thay vì Spacer
 
-            const Spacer(),
-
-            /// Price Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                /// Price
-                Flexible(
-                  child: Column(
+                  /// Price Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      if (product.productType == ProductType.single.toString() && product.salePrice > 0)
-                        Padding(
-                          padding: const EdgeInsets.only(left: TSizes.sm),
-                          child: Text(
-                            product.price.toString(),
-                            style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
-                          ),
-                        ),
+                      /// Price
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (product.productType == ProductType.single.toString() && product.salePrice > 0)
+                              Text(
+                                '${product.price}',
+                                style: Theme.of(context).textTheme.labelMedium!.apply(decoration: TextDecoration.lineThrough),
+                                overflow: TextOverflow.ellipsis,
+                              ),
 
-                      /// Price, Show sale price as main price if sale exist.
-                      Padding(
-                        padding: const EdgeInsets.only(left: TSizes.sm),
-                        child: TProductPriceText(price: controller.getProductPrice(product)),
+                            /// Price, Show sale price as main price if sale exist.
+                            TProductPriceText(price: controller.getProductPrice(product)),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(width: TSizes.xs),
+
+                      /// Add to Cart Button
+                      Flexible(
+                        child: ProductCardAddToCartButton(product: product),
                       ),
                     ],
                   ),
-                ),
-
-                /// Add to Cart Button
-                ProductCardAddToCartButton(product: product),
-              ],
+                ],
+              ),
             ),
           ],
         ),

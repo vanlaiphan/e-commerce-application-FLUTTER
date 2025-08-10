@@ -165,6 +165,7 @@ class TImages {
   static const String banner6 = "assets/images/banners/banner_6.jpg";
   static const String banner7 = "assets/images/banners/banner_7.jpg";
   static const String banner8 = "assets/images/banners/banner_8.jpg";
+  static const String banner9 = "assets/images/banners/e-commerce-la-gi-kien-thuc-can-biet-ve-ecommerce.jpeg";
 
 
   //Profile
@@ -176,6 +177,7 @@ class TImages {
   static const String creditCard = "assets/icons/payment_methods/credit-card.png";
   static const String masterCard = "assets/icons/payment_methods/master-card.png";
   static const String paypal = "assets/icons/payment_methods/paypal.png";
+  static const String stripe = "assets/icons/payment_methods/stripe.png";
   static const String visa = "assets/icons/payment_methods/visa.png";
   static const String paystack = "assets/icons/payment_methods/paystack.png";
   static const String paytm = "assets/icons/payment_methods/paytm.png";

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
+import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:t_store/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
@@ -45,7 +46,7 @@ class ProductDetailScreen extends StatelessWidget {
                   if (product.productType == ProductType.variable.toString()) const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// -- Checkout Button
-                  SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {}, child: const Text('Checkout'))),
+                  SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const CartScreen()), child: const Text('Checkout'))),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   /// - Description
@@ -67,8 +68,9 @@ class ProductDetailScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const TSectionHeading(title: 'Review(199)', showActionButton: false),
-                      IconButton(icon: const Icon(Iconsax.arrow_right_3, size: 18), onPressed: () => Get.to(() => const ProductReviewsScreen())),
+                      const TSectionHeading(title: 'Review', showActionButton: false),
+                      IconButton(
+                          icon: const Icon(Iconsax.arrow_right_3, size: 18), onPressed: () => Get.to(() => ProductReviewsScreen(product: product))),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),

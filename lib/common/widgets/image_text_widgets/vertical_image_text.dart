@@ -31,6 +31,7 @@ class TVerticalImageText extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             /// --- Circular Icon
             TCircularImage(
@@ -44,14 +45,16 @@ class TVerticalImageText extends StatelessWidget {
 
             /// --- Text
             const SizedBox(height: TSizes.spaceBtwItems / 2),
-            SizedBox(
-              width: 55,
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.labelMedium!.apply(color: textColor),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
+            Flexible(
+              child: SizedBox(
+                width: 55,
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.labelMedium!.apply(color: textColor),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
               ),
             )
           ],
